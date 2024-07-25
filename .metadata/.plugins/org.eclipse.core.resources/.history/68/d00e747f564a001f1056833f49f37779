@@ -10,5 +10,5 @@ import com.employeemanagement.model.UserLogin;
 
 public interface AdminRepo extends JpaRepository<UserLogin, Long>{
 
-	 UserLogin getUserNameAndPasswordByUserName(String userName);
+	 List<UserLogin> getUserNameAndPasswordByUserName(String userName);
 }

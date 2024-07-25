@@ -24,16 +24,12 @@ public class AdminServiceImp implements AdminService {
 		boolean flag = false;
 		String userName = userLoginRequest.getUserName();
 		String password =userLoginRequest.getPassword();
-		UserLogin userList=repo.getUserNameAndPasswordByUserName(userName);
-		if(userList!=null) {
-			if(password.equals(userList.getPassword()) && 1==userList.getId()) {
-				flag=true;
-				return flag;
-			}
-		}else {
-			return false;
+		List<UserLogin> userList=repo.getUserNameAndPasswordByUserName(userName);
+		UserLogin userLoginData = userList.get(0);
+		if(password.equals(userLoginData.getPassword()) && 1==userLoginData.getId()) {
+			flag=true;
+			return flag;
 		}
-		
 		
 		return flag;
 	}
