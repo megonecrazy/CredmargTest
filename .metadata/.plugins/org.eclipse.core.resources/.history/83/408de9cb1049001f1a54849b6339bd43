@@ -1,0 +1,23 @@
+package com.employeemanagement.service.imp;
+
+import org.springframework.stereotype.Service;
+
+import com.employeemanagement.model.UserLogin;
+import com.employeemanagement.reposotory.EmployeeRepo;
+import com.employeemanagement.service.AdminService;
+
+import lombok.AllArgsConstructor;
+
+
+@Service
+@AllArgsConstructor
+
+public class AdminServiceImp implements AdminService {
+
+	@Override
+	public UserLogin getUserNameAndPasswordByUserName(String userName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

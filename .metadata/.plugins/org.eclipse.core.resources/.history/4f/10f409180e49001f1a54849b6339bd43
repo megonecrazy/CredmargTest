@@ -1,0 +1,49 @@
+package com.employeemanagement.controller;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import dto.EmployeeDto;
+import lombok.AllArgsConstructor;
+import service.EmployeeService;
+
+@CrossOrigin("*")
+@AllArgsConstructor
+@RestController
+@RequestMapping("/api/employee")
+public class EmployeeManageSysController {
+
+	
+	private EmployeeService service;
+	
+	@PostMapping("addEmployee")
+	public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto empDto){
+		EmployeeDto savedEmp=service.createEmployee(empDto);
+		return new ResponseEntity<>(savedEmp,HttpStatus.CREATED);
+	}
+	
+	@GetMapping("getEmployee/{id}")
+	public ResponseEntity<EmployeeDto> getEmployeeById(@PathVariable("id") Long  empCOde){
+		EmployeeDto empDro = service.getEmployeeById(empCOde);
+		return ResponseEntity.ok(empDro);
+	}
+	
+	@CrossOrigin(origins = "*",allowedHeaders = "Authorization")
+	@GetMapping("getEmployee")
+	public ResponseEntity<List<EmployeeDto>> getAllEmployee(){
+		List<EmployeeDto> empDto = service.getAllEmployee();
+		return ResponseEntity.ok(empDto);
+	}
+	
+	
+	
+}

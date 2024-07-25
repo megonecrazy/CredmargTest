@@ -1,0 +1,33 @@
+package com.employeemanagement.service.imp;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.employeemanagement.model.Vendor;
+import com.employeemanagement.reposotory.EmployeeRepo;
+import com.employeemanagement.reposotory.VendorRepo;
+import com.employeemanagement.service.VendorService;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class VendorServiceImp implements VendorService{
+
+	private VendorRepo repo;
+	
+	@Override
+	public Vendor createEmployee(Vendor employeeDto) {
+		// TODO Auto-generated method stub
+		Vendor vendor=repo.save(employeeDto);
+		return vendor;
+	}
+
+	@Override
+	public List<Vendor> getAllEmployee() {
+		List<Vendor> vendorlist = repo.findAll();
+		return null;
+	}
+
+}

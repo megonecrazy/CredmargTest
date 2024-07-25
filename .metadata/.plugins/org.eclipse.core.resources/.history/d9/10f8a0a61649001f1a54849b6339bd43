@@ -1,0 +1,22 @@
+package com.employeemanagement.service.imp;
+
+import java.util.List;
+
+import com.employeemanagement.model.Vendor;
+import com.employeemanagement.service.VendorService;
+
+public class VendorServiceImp implements VendorService{
+
+	@Override
+	public Vendor createEmployee(Vendor employeeDto) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Vendor> getAllEmployee() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

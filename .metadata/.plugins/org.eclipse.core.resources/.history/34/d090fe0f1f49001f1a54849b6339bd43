@@ -1,0 +1,7 @@
+package com.employeemanagement.dto;
+
+public class MailVendorRequest {
+	
+	private String email;
+	private String name;
+}

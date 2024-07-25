@@ -1,0 +1,65 @@
+package com.employeemanagement.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.employeemanagement.dto.EmployeeDto;
+import com.employeemanagement.model.MessageBody;
+import com.employeemanagement.service.EmployeeService;
+
+import lombok.AllArgsConstructor;
+
+@CrossOrigin("*")
+@AllArgsConstructor
+@RestController
+@RequestMapping("/api/employee")
+public class EmployeeManageSysController {
+
+	
+	private EmployeeService service;
+	
+	@PostMapping("addEmployee")
+	public ResponseEntity<MessageBody> createEmployee(@RequestBody EmployeeDto empDto){
+		MessageBody message = new MessageBody();
+		try {
+			EmployeeDto savedEmp=service.createEmployee(empDto);
+			if(savedEmp!=null) {
+				message.setStatus(true);
+				message.setMessage("Successfully added an employee!");
+			}else {
+				message.setStatus(false);
+				message.setMessage("Please try again some times!");
+			}
+		}catch (Exception e) {
+			// TODO: handle exception
+		}
+		return new ResponseEntity<>(message,HttpStatus.CREATED);
+	}
+	
+	
+	
+
+	@GetMapping("getEmployee")
+	public ResponseEntity<List<EmployeeDto>> getAllEmployee(){
+		List<EmployeeDto> empDto =new ArrayList<>();
+		try {
+			 empDto = service.getAllEmployee();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ResponseEntity.ok(empDto);
+	}
+	
+	
+	
+}

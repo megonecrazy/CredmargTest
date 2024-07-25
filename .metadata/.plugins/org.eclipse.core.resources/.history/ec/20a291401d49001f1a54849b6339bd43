@@ -1,0 +1,10 @@
+package com.employeemanagement.reposotory;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.employeemanagement.model.MailTemplate;
+
+public interface MailTemplateRepo extends JpaRepository<MailTemplate, Long>{
+
+	MailTemplate findAllMailTemplate();
+}

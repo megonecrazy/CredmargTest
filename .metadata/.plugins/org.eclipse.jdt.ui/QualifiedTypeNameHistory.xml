@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.employeemanagement.reposotory.AdminRepo"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PostMapping"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.model.UserLogin"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.service.AdminService"/>
+    <fullyQualifiedTypeName name="org.springframework.http.ResponseEntity"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatusCode"/>
+    <fullyQualifiedTypeName name="org.springframework.http.HttpStatus"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RestController"/>
+    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.reposotory.VendorRepo"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.mapper.VendorMapper"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.service.VendorService"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.dto.VendorDto"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.model.Vendor"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.model.MailTemplate"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.Query"/>
+    <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.dto.MailSendingDto"/>
+    <fullyQualifiedTypeName name="org.springframework.data.jpa.repository.JpaRepository"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.reposotory.SendingMailRepo"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.reposotory.MailTemplateRepo"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.dto.MailVendorRequest"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.model.Employee"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.model.SendingMailToVendor"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="com.employeemanagement.model.MessageBody"/>
+</qualifiedTypeNameHistroy>

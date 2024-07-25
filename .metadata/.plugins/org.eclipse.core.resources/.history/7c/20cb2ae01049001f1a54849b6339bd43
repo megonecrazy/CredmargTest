@@ -1,0 +1,12 @@
+package com.employeemanagement.reposotory;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.employeemanagement.model.UserLogin;
+
+
+
+public interface AdminRepo extends JpaRepository<UserLogin, Long>{
+
+	 int getUserNameAndPasswordByUserName(String userName);
+}

@@ -1,0 +1,9 @@
+package com.employeemanagement.reposotory;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import com.employeemanagement.model.Vendor;
+
+public interface VendorRepo extends JpaRepository<Vendor, Long>{
+
+}

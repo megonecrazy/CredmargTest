@@ -1,0 +1,48 @@
+package com.employeemanagement.controller;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.employeemanagement.dto.VendorDto;
+import com.employeemanagement.model.MessageBody;
+import com.employeemanagement.service.VendorService;
+
+@CrossOrigin("*")
+@RestController
+@RequestMapping("/api/vendor")
+public class VendorCrudController {
+
+	
+	private VendorService service;
+	
+	@PostMapping("/addVendor")
+	public ResponseEntity<MessageBody> createEmployee(@RequestBody VendorDto empDto){
+		System.out.println("body==="+empDto);
+		MessageBody message = new MessageBody();
+		VendorDto savedEmp=service.createVendor(empDto);
+		if(savedEmp!=null) {
+			message.setStatus(true);
+			message.setMessage("Successfully Created Vendor!");
+		}
+		return new ResponseEntity<>(message,HttpStatus.CREATED);
+	}
+	
+	
+	
+	@GetMapping("getVendor")
+	public ResponseEntity<List<VendorDto>> getAllEmployee(){
+		List<VendorDto> empDto = service.getAllVendor();
+		return ResponseEntity.ok(empDto);
+	}
+	
+	
+	
+}

@@ -1,0 +1,5 @@
+package com.employeemanagement.dto;
+
+public class VendorDto {
+
+}

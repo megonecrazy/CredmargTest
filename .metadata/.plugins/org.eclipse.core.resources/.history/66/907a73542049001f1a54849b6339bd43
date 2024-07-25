@@ -1,0 +1,14 @@
+package com.employeemanagement.reposotory;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.employeemanagement.model.Vendor;
+
+public interface VendorRepo extends JpaRepository<Vendor, Long>{
+
+	@Query("SELECT u.mail_template_text FROM vendor u where u.created_by='admin'")
+	List<Vendor> findAll();
+}

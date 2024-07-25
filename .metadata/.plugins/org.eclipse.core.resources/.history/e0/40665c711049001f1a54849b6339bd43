@@ -1,0 +1,5 @@
+package com.employeemanagement.service.imp;
+
+public class AdminServiceImp {
+
+}

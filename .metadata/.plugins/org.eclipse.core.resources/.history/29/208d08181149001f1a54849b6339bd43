@@ -1,0 +1,7 @@
+package com.employeemanagement.service;
+
+
+public interface AdminService {
+
+	boolean getUserNameAndPasswordByUserName(UserLogin userName);
+}

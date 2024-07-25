@@ -1,0 +1,15 @@
+package com.employeemanagement.service;
+
+import java.util.List;
+
+
+
+public interface VendorService {
+
+	EmployeeDto createEmployee(EmployeeDto employeeDto);
+	
+	
+	EmployeeDto getEmployeeById(Long empCode);
+	
+	List<EmployeeDto> getAllEmployee();
+}

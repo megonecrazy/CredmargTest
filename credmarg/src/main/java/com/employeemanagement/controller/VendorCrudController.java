@@ -1,0 +1,78 @@
+package com.employeemanagement.controller;
+
+import java.util.List;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.employeemanagement.dto.MailSendingDto;
+import com.employeemanagement.dto.VendorDto;
+import com.employeemanagement.model.MessageBody;
+import com.employeemanagement.model.SendingMailToVendor;
+import com.employeemanagement.service.VendorService;
+
+import lombok.AllArgsConstructor;
+
+@CrossOrigin("*")
+@RestController
+@AllArgsConstructor
+@RequestMapping("/api/vendor")
+public class VendorCrudController {
+
+	
+	private VendorService service;
+	
+	@PostMapping(path = "/addVendor")
+	public ResponseEntity<MessageBody> createVendor(@RequestBody VendorDto empDto){
+		MessageBody message = new MessageBody();
+		try {
+			int flag= service.findEmailId(empDto.getEmail());
+			if(flag>0) {
+				message.setStatus(false);
+				message.setMessage("Email Id Already Exist.");
+			}
+			if(flag==0) {
+				VendorDto savedEmp=service.createVendor(empDto);
+				if(savedEmp!=null) {
+					message.setStatus(true);
+					message.setMessage("Successfully Created Vendor!");
+				}
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return new ResponseEntity<>(message,HttpStatus.CREATED);
+	}
+	
+	
+	
+	@GetMapping(path="/getVendor")
+	public ResponseEntity<List<VendorDto>> getAllEmployee(){
+		List<VendorDto> empDto = service.getAllVendor();
+		return ResponseEntity.ok(empDto);
+	}
+	
+	@PostMapping(path = "/sendMailToVendor")
+	public ResponseEntity<MessageBody> sendMailToVendors(@RequestBody MailSendingDto mailDto){
+		MessageBody message = new MessageBody();
+		System.out.println("mailDto=="+mailDto.getCreatedBy());
+		boolean flag=service.saveMailVendorData(mailDto);
+		if(flag) {
+			message.setStatus(true);
+			message.setMessage("Sending payments to vendor { name } at upi { upi }");
+		}
+		return new ResponseEntity<>(message,HttpStatus.CREATED);
+	}
+	
+	@GetMapping(path="/getMailHistory")
+	public ResponseEntity<List<SendingMailToVendor>> getMailHistory(){
+		List<SendingMailToVendor> mailHistoryData = service.getMailHistory();
+		return ResponseEntity.ok(mailHistoryData);
+	}
+}

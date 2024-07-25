@@ -1,0 +1,19 @@
+package com.employeemanagement.controller;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.employeemanagement.model.UserLogin;
+
+@RestController("/admin")
+public class AdminController {
+
+	@PostMapping("/login")
+	public ResponseEntity<String> adminLogin(@ResponseBody UserLogin userLoginRequest) {
+	
+		
+		return null;
+	}
+}

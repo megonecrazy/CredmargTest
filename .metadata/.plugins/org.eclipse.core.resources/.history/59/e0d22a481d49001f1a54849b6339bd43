@@ -1,0 +1,12 @@
+package com.employeemanagement.reposotory;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import com.employeemanagement.model.MailTemplate;
+
+public interface MailTemplateRepo extends JpaRepository<MailTemplate, Long>{
+
+	@Query("SELECT mail_template_text FROM mail_template where is_active='Y'")
+	MailTemplate findMailTemplate();
+}

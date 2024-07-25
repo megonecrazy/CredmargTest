@@ -1,0 +1,26 @@
+package com.employeemanagement.mapper;
+
+import com.employeemanagement.dto.EmployeeDto;
+import com.employeemanagement.dto.VendorDto;
+import com.employeemanagement.model.Employee;
+import com.employeemanagement.model.Vendor;
+
+public class VendorMapper {
+
+	public static VendorDto mapToVendorDto(Vendor vendor) {
+		return new VendorDto(vendor.getId(), 
+				vendor.getName(), 
+				vendor.getEmail(), 
+				vendor.getUpiId());
+	}
+	
+	public static Vendor mapToEmployee(VendorMapper employee) {
+		return new Employee(
+				employee.getId(),
+				employee.getName(),
+				employee.getDesignation(),
+				employee.getCtc(),
+				employee.getEmail()
+				);
+	}
+}

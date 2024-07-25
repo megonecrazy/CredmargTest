@@ -1,0 +1,12 @@
+package com.employeemanagement.dto;
+
+
+
+public class VendorDto {
+
+	private long id;
+	private String name;
+	private String email;
+	private String upiId;
+	
+}
