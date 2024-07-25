@@ -44,7 +44,7 @@ CREATE TABLE `vendor` (
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
-INSERT INTO mail_template
+INSERT INTO `credmarg_test`.`mail_template`
 (`id`,
 `mail_template_text`,
 `is_active`)
@@ -52,12 +52,3 @@ VALUES
 (1,
 'Sending payments to vendor {name} at upi {upi}',
 'Y');
-
-INSERT INTO user_login
-(`id`,
-`user_name`,
-`password`)
-VALUES
-(1,
-'admin',
-'1234');
